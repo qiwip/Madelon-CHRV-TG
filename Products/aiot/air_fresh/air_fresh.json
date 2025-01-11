@@ -1,0 +1,247 @@
+{
+	"schema": "https://iotx-tsl.oss-ap-southeast-1.aliyuncs.com/schema.json",
+	"profile": {
+	  "version": "1.0",
+	  "productKey": "a1R9jEoNWlN"
+	},
+	"properties": [
+	  {
+		"identifier": "powerstate",
+		"name": "开关",
+		"accessMode": "rw",
+		"required": false,
+		"dataType": {
+		  "type": "bool",
+		  "specs": {
+			"0": "关闭",
+			"1": "打开"
+		  }
+		}
+	  },
+	  {
+		"identifier": "windspeed",
+		"name": "风速",
+		"accessMode": "rw",
+		"required": false,
+		"dataType": {
+		  "type": "enum",
+		  "specs": {
+			"1": "一档",
+			"2": "二档",
+			"3": "三档"
+		  }
+		}
+	  },
+	  {
+		"identifier": "mode",
+		"name": "模式",
+		"accessMode": "rw",
+		"required": false,
+		"dataType": {
+		  "type": "enum",
+		  "specs": {
+			"717": "新风模式",
+			"825": "单排风"
+		  }
+		}
+	  },
+	  {
+		"identifier": "ECOOnOff",
+		"name": "节能功能/ECO模式",
+		"accessMode": "rw",
+		"required": false,
+		"dataType": {
+		  "type": "bool",
+		  "specs": {
+			"0": "关闭",
+			"1": "开启"
+		  }
+		}
+	  }
+	],
+	"events": [
+	  {
+		"identifier": "post",
+		"name": "post",
+		"type": "info",
+		"required": true,
+		"desc": "属性上报",
+		"method": "thing.event.property.post",
+		"outputData": [
+		  {
+			"identifier": "powerstate",
+			"name": "开关",
+			"dataType": {
+			  "type": "bool",
+			  "specs": {
+				"0": "关闭",
+				"1": "打开"
+			  }
+			}
+		  },
+		  {
+			"identifier": "windspeed",
+			"name": "风速",
+			"dataType": {
+			  "type": "enum",
+			  "specs": {
+				"1": "一档",
+				"2": "二档",
+				"3": "三档"
+			  }
+			}
+		  },
+		  {
+			"identifier": "mode",
+			"name": "模式",
+			"dataType": {
+			  "type": "enum",
+			  "specs": {
+				"717": "新风模式",
+				"825": "单排风"
+			  }
+			}
+		  },
+		  {
+			"identifier": "ECOOnOff",
+			"name": "节能功能/ECO模式",
+			"dataType": {
+			  "type": "bool",
+			  "specs": {
+				"0": "关闭",
+				"1": "开启"
+			  }
+			}
+		  }
+		]
+	  }
+	],
+	"services": [
+	  {
+		"identifier": "set",
+		"name": "set",
+		"required": true,
+		"callType": "async",
+		"desc": "属性设置",
+		"method": "thing.service.property.set",
+		"inputData": [
+		  {
+			"identifier": "powerstate",
+			"name": "开关",
+			"dataType": {
+			  "type": "bool",
+			  "specs": {
+				"0": "关闭",
+				"1": "打开"
+			  }
+			}
+		  },
+		  {
+			"identifier": "windspeed",
+			"name": "风速",
+			"dataType": {
+			  "type": "enum",
+			  "specs": {
+				"1": "一档",
+				"2": "二档",
+				"3": "三档"
+			  }
+			}
+		  },
+		  {
+			"identifier": "mode",
+			"name": "模式",
+			"dataType": {
+			  "type": "enum",
+			  "specs": {
+				"717": "新风模式",
+				"825": "单排风"
+			  }
+			}
+		  },
+		  {
+			"identifier": "ECOOnOff",
+			"name": "节能功能/ECO模式",
+			"dataType": {
+			  "type": "bool",
+			  "specs": {
+				"0": "关闭",
+				"1": "开启"
+			  }
+			}
+		  }
+		],
+		"outputData": []
+	  },
+	  {
+		"identifier": "get",
+		"name": "get",
+		"required": true,
+		"callType": "async",
+		"desc": "属性获取",
+		"method": "thing.service.property.get",
+		"inputData": [
+		  "powerstate",
+		  "windspeed",
+		  "mode",
+		  "ECOOnOff"
+		],
+		"outputData": [
+		  {
+			"identifier": "powerstate",
+			"name": "开关",
+			"dataType": {
+			  "type": "bool",
+			  "specs": {
+				"0": "关闭",
+				"1": "打开"
+			  }
+			}
+		  },
+		  {
+			"identifier": "windspeed",
+			"name": "风速",
+			"dataType": {
+			  "type": "enum",
+			  "specs": {
+				"1": "一档",
+				"2": "二档",
+				"3": "三档"
+			  }
+			}
+		  },
+		  {
+			"identifier": "mode",
+			"name": "模式",
+			"dataType": {
+			  "type": "enum",
+			  "specs": {
+				"717": "新风模式",
+				"825": "单排风"
+			  }
+			}
+		  },
+		  {
+			"identifier": "ECOOnOff",
+			"name": "节能功能/ECO模式",
+			"dataType": {
+			  "type": "bool",
+			  "specs": {
+				"0": "关闭",
+				"1": "开启"
+			  }
+			}
+		  }
+		]
+	  },
+	  {
+		"identifier": "getProperties",
+		"name": "获取设备属性",
+		"required": false,
+		"callType": "async",
+		"method": "thing.service.getProperties",
+		"inputData": [],
+		"outputData": []
+	  }
+	]
+  }
