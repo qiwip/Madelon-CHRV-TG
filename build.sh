@@ -202,7 +202,7 @@ fi
 build_end
 log=$(ls -al out/$app@${board}/$app@${board}.bin -h|awk '{print $5}')
 echo -e "\033[41;36mFirmware $app@${board}.bin Size=${log} \033[0m"
-cp out/$app@${board}/$app@${board}.bin /mnt/hgfs/Share/
+echo -e "Firmware path is: out/$app@${board}/$app@${board}.bin"
 exit 0
 
 

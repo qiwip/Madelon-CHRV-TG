@@ -570,13 +570,11 @@ void user_post_property_after_connected(void)
     int res = 0;
     user_example_ctx_t *user_example_ctx = user_example_get_ctx();
     device_status_t *device_status = &user_example_ctx->status;
-    char property_payload[128];
 
-
+    char property_payload[512] = {'\0'};    
     snprintf(property_payload, sizeof(property_payload), \
-             "{\"%s\":%d, \"%s\":%d, \"%s\":%d, \"%s\":%d}", "powerstate", device_status->powerstate, \
-             "windspeed", device_status->speed, "ECOOnOff", device_status->bypass);
-
+             "{\"powerstate\":%d, \"windspeed\":%d, \"ECOOnOff\":%d}", device_status->powerstate, device_status->speed, device_status->bypass);
+    
     res = IOT_Linkkit_Report(user_example_ctx->master_devid, ITM_MSG_POST_PROPERTY,
             property_payload, strlen(property_payload));
 

@@ -13,6 +13,8 @@ int32_t hal_uart_send(uart_dev_t *uart, const void *data, uint32_t size, uint32_
 
 本方案中modbus通信部分使用了开源的实现[nanoModbus](https://github.com/debevv/nanoMODBUS)。
 
+项目代码路径: example/air_fresh, 因为调整目录需要修改编辑脚本中的一些东西, 所以就没有修改.
+
 ## 编译
 参考[安信可教程](https://aithinker.blog.csdn.net/article/details/110559410)。
 ### 1.环境配置
@@ -51,7 +53,7 @@ cd Madelon-CHRV-TG
 ## 烧录
 ### 1.烧录固件
 下载[TG7100C_FlashEnv烧录调试工具](https://occ-oss-prod.oss-cn-hangzhou.aliyuncs.com/userFiles/3706713731985244160/resource/3706713731985244160smJBaJkFPK.zip)
-* 在下载的文件包里面打开文件夹docs下的TG Flash Environment用户手册
+* 在下载的文件包里面打开文件夹docs下的TG Flash Environment用户手册，
 打开 TGFlashEnv.exe
 * 按照TG Flash Environment用户手册步骤配置好。
 * 开发板通过数据线连接电脑。
@@ -78,4 +80,6 @@ AT+LINKKEYCONFIG="a1R9jEoNWlN","7cb94c47e86f","cc7508d60d4f3abcec8369cdca420aa5"
 AT+LINKKEYCONFIG?
 ```
 ## 硬件连接
-将tg-12f开发板的IO21(tx)、IO12(rx)连接串口转485模块，再连接新风的485的AB接口即可。
+将tg-12f开发板的IO21(TX)、IO12(RX)连接串口转485模块(需要交叉接线, 即IO21接TTL模块的RX)，再连接新风的485的AB接口即可。
+记得将IO8接GND再启动。
+IO3绑定了一个逻辑开关,短按是开/关设备,长按重置模块,可以重新绑定设备.
